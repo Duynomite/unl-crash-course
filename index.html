@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UNL Ancillary Sales — Crash Course · Clear Path Coverage</title>
-  <meta name="description" content="A 25-minute crash course that takes a CPC agent who has sold Medicare Advantage but never sold ancillary from zero to a real conversation about Hospital Indemnity and Home Healthcare.">
+  <meta name="description" content="A 30-minute crash course that takes a CPC agent who has sold Medicare Advantage but never sold ancillary from zero to confident on Hospital Indemnity + Home Healthcare cross-sell — covering all three sales journeys (MA-first inbound, ancillary-first inbound, HHC outbound).">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -505,6 +505,96 @@
       padding: 1rem 0 0;
     }
 
+    /* Journey card — top-level cross-sell scenario (Section 8) */
+    .ct-journey {
+      background: white;
+      border: 1px solid #D8E6E3;
+      border-top: 5px solid #2D5A7A;
+      border-radius: 0.75rem;
+      padding: 1.75rem 1.5rem 1.75rem;
+      margin: 2.5rem 0;
+      position: relative;
+      box-shadow: 0 1px 4px rgba(45,90,122,0.06);
+    }
+    .ct-journey-num {
+      position: absolute;
+      top: -0.8rem;
+      left: 1.5rem;
+      background: #2D5A7A;
+      color: white;
+      font-family: "Urbanist", sans-serif;
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .ct-journey-title {
+      font-family: "Urbanist", sans-serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: #2D5A7A;
+      margin-top: 0.6rem;
+      margin-bottom: 0.35rem;
+      line-height: 1.25;
+    }
+    .ct-journey-tagline {
+      font-family: "Urbanist", sans-serif;
+      font-size: 0.875rem;
+      color: #4B7797;
+      margin-bottom: 1.1rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* Path within a journey — for sub-paths (1a, 1b) */
+    .ct-path {
+      background: rgba(216,230,227,0.28);
+      border-left: 4px solid #3DCEB2;
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 1.15rem 1.35rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .ct-path-label {
+      font-family: "Urbanist", sans-serif;
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      color: #3DCEB2;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .ct-path-title {
+      font-family: "Urbanist", sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #2D5A7A;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    /* The expert move — accent treatment for the MA-rescue insight */
+    .ct-expert {
+      background: linear-gradient(to right, rgba(61,206,178,0.14), rgba(61,206,178,0.04));
+      border: 1px solid rgba(61,206,178,0.4);
+      border-left: 4px solid #3DCEB2;
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 0.95rem 1.25rem 1rem;
+      margin: 1.15rem 0;
+      line-height: 1.65;
+    }
+    .ct-expert::before {
+      content: "★ THE EXPERT MOVE";
+      display: block;
+      font-family: "Urbanist", sans-serif;
+      font-weight: 700;
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      color: #2D5A7A;
+      margin-bottom: 0.45rem;
+    }
+
     /* Mobile polish — tighten padding, scale fonts, prevent overflow on phones */
     @media (max-width: 640px) {
       html { scroll-padding-top: 64px; }
@@ -564,6 +654,15 @@
 
       /* Body main wrapper — slightly less vertical padding to recover screen real estate */
       main.ct-content { padding-top: 0; }
+
+      /* Section 8 — journey + path + expert on mobile */
+      .ct-journey { padding: 1.25rem 1.1rem 1.4rem; margin: 2rem 0; }
+      .ct-journey-num { font-size: 0.62rem; padding: 0.32rem 0.7rem; left: 1rem; top: -0.7rem; }
+      .ct-journey-title { font-size: 1.1rem; }
+      .ct-journey-tagline { font-size: 0.82rem; }
+      .ct-path { padding: 0.9rem 1rem 1rem; }
+      .ct-path-title { font-size: 0.95rem; }
+      .ct-expert { padding: 0.8rem 1rem; }
     }
 
     /* Stop horizontal overflow from very long verbatim strings */
@@ -689,7 +788,7 @@
         </div>
       </div>
       <div class="flex items-center gap-3 md:gap-5 shrink-0">
-        <span class="hidden md:inline text-xs text-soft-blue">25 min read</span>
+        <span class="hidden md:inline text-xs text-soft-blue">30 min read · 8 sections</span>
         <a href="https://duynomite.github.io/unl-academy/" target="_blank" rel="noopener" class="ct-header-link inline-flex items-center gap-1.5 text-xs md:text-sm font-heading font-semibold">
           Open the Academy
           <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -742,7 +841,7 @@
 
         <!-- Frontmatter -->
         <div class="ct-intro print-not-objections">
-          <p class="prose-body"><strong>What this is.</strong> A 25-minute crash course that takes a CPC agent who has sold Medicare Advantage but never sold ancillary from zero to <em>"I can have a real conversation with a Medicare prospect about Hospital Indemnity and Home Healthcare tomorrow."</em></p>
+          <p class="prose-body"><strong>What this is.</strong> A 30-minute crash course that takes a CPC agent who has sold Medicare Advantage but never sold ancillary from zero to <em>"I can have a real conversation with a Medicare prospect about Hospital Indemnity and Home Healthcare tomorrow — and cross-sell them properly across all three lead types."</em></p>
           <p class="prose-body"><strong>How to use it.</strong> Read it once, end-to-end. Reread Section 6 (objections) before your first 5 calls. Use the <a href="https://duynomite.github.io/unl-academy/" target="_blank" rel="noopener">UNL Ancillary Academy</a> once you start running calls — it has the deeper material this doc references (HHC service-level caps, full state matrix, the 51-frame pitch library, 10 practice scenarios).</p>
         </div>
 
@@ -753,9 +852,9 @@
           <p class="text-sm text-mid-blue mt-4 italic leading-relaxed">If that sentence is in your head when the phone rings, you're more prepared than 90% of agents new to ancillary. The rest of this doc is what's behind it.</p>
         </div>
 
-        <!-- Roadmap — what the next 25 minutes will teach -->
+        <!-- Roadmap — what the next 30 minutes will teach -->
         <div class="ct-precall print-not-objections" style="border-top-color: #2D5A7A;">
-          <div class="ct-precall-eyebrow" style="color: #2D5A7A;">★ Your 25-minute journey</div>
+          <div class="ct-precall-eyebrow" style="color: #2D5A7A;">★ Your 30-minute journey</div>
           <div class="ct-precall-title">What you're about to learn — and why it's in this order</div>
           <ol>
             <li><span><strong>Section 1 · What you're selling.</strong> Two products in plain English, plus the knockout screens that decide who can buy. Master this and you can have a basic conversation.</span></li>
@@ -765,6 +864,7 @@
             <li><span><strong>Section 5 · The math.</strong> The formula that makes the close work. Three worked examples (Mary, John, Bruce) you can apply to any prospect.</span></li>
             <li><span><strong>Section 6 · The 5 most common objections.</strong> Verbatim responses you can use as-is. Reread this before your first 5 calls.</span></li>
             <li><span><strong>Section 7 · Compliance + where to go next.</strong> Three things you can never say, the disqualification line that protects your close rate, and resources for after your first calls.</span></li>
+            <li><span><strong>Section 8 · Cross-sell mastery — the three sales journeys.</strong> Where everything you've learned comes together. MA-first inbound (and the expert MA-rescue move), ancillary-first inbound, and HHC outbound to PTC-documented high-intent leads. Master these three patterns and you're handling 95% of your real calls.</span></li>
           </ol>
           <p class="text-xs text-mid-blue mt-3 italic leading-relaxed">Your first 5 calls will feel awkward. The script will sound like it's not yours. By call 5 it will be. Push through call 1.</p>
         </div>
@@ -1541,17 +1641,205 @@ Q4: "Do you feel like this is something you can have that'll get
 
           <p class="prose-body">Once you've run your first 5 calls, come back to Section 6 (objections) and Section 4 (looping + tonality). The frames that felt awkward on read will start landing once you've heard them in your own voice on a live call.</p>
 
-          <!-- Before You Dial — desk-side reference -->
+          <p class="ct-transition">Next, Section 8: how everything you've learned comes together on real calls — three sales journeys, one method, and the single expert move that separates new agents from pros.</p>
+        </section>
+
+        <hr class="ct-divider print-not-objections" />
+
+        <!-- ============ Section 8 ============ -->
+        <section id="s8" class="print-not-objections">
+          <span class="ct-section-eyebrow">Section 8</span>
+          <h2 class="font-heading font-bold text-3xl md:text-[2rem] text-secondary leading-tight tracking-tight">Cross-sell mastery <span class="text-mid-blue text-xl md:text-2xl font-medium">— the three sales journeys</span></h2>
+
+          <p class="prose-body mt-4">Three calls a day, three different journeys, one method underneath all of them. By now you have the foundation — products, the Medicare gap, the openers, NEPQ, the math, the objections, the guardrails. <strong>This section assembles all of that into the three sales sequences you'll actually run on real calls.</strong> Master these three patterns and you're handling about 95% of the calls that come through your headset.</p>
+
+          <p class="prose-body">The key insight for a new agent: <strong>the NEPQ method doesn't change between journeys.</strong> What changes is (a) the opener, (b) the specific pivot move that bridges between products, and (c) where the math comes in. Read each journey looking for the pivot — that's where most new agents stumble and where the experienced ones make their money.</p>
+
+          <div class="ct-table-wrap my-5">
+            <table class="ct-table">
+              <thead><tr><th>Journey</th><th>Lead source</th><th>Lead with</th><th>Cross-sell to</th><th>Compliance frame</th></tr></thead>
+              <tbody>
+                <tr><td><strong>1 · MA-First</strong></td><td>Inbound MA, SMID-approved, consumer-initiated</td><td>Medicare Advantage</td><td>HI + HHC same call (if on SOA)</td><td>Verbal SOA covers all products at start</td></tr>
+                <tr><td><strong>2 · Ancillary-First</strong></td><td>Inbound ancillary (non-Medicare lead)</td><td>HHC (Rx-led)</td><td>HI if hospital pain surfaces; route MA separate</td><td>No MA-SOA needed; route MA to separate inbound</td></tr>
+                <tr><td><strong>3 · HHC Outbound</strong></td><td>PTC-documented follow-up, pre-qualified, high-intent</td><td>HHC (the product they opted in for)</td><td>HI if hospital pain surfaces</td><td>PTC documented; ancillary-only scope</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- JOURNEY 1 -->
+          <div class="ct-journey">
+            <span class="ct-journey-num">Journey 1 · Most common</span>
+            <h3 class="ct-journey-title">MA-First (Inbound)</h3>
+            <p class="ct-journey-tagline">Your bread-and-butter call. SMID-approved Medicare lead. Verbal SOA at start covers MA + HI + HHC.</p>
+
+            <p class="prose-body"><strong>The setup:</strong> Customer responded to a SMID-approved MA ad and called us. They're consumer-initiated, which means the 48-hour SOA waiting period doesn't apply. After the TPMO disclaimer, you capture a verbal SOA that enumerates every product category you might discuss — MA, MAPD, PDP, HI, HHC. Customer says Yes/No to each. You proceed.</p>
+
+            <p class="prose-body"><strong>What happens next depends on the MA outcome.</strong> There are two paths from here, and the difference between them is where most agents lose money.</p>
+
+            <!-- Path 1a -->
+            <div class="ct-path">
+              <div class="ct-path-label">Path 1a · MA enrollment closes</div>
+              <div class="ct-path-title">After the MA close, transition to ancillary</div>
+
+              <p class="prose-body">You completed the MA enrollment. Customer is satisfied. Trust is pre-built — they just enrolled with you. The cross-sell bridge uses what you already captured on the SOA:</p>
+
+              <div class="ct-verbatim">
+                "Great — you're enrolled and you'll get your card in about 7–10 days. Last thing before we wrap up: we agreed at the start to also discuss Hospital Indemnity and Home Healthcare. Your new plan has a $300/day copay if you get admitted, and Medicare itself doesn't cover daily-living help at home. Couple quick questions to see if either is a fit?"
+              </div>
+
+              <p class="prose-body">From here, NEPQ Stage 2A questions: prescription count, fill cadence, family situation, ADL independence. Then the <strong>Preference Question</strong> from <a href="#s4">Section 4</a> — <em>"if you ever needed care, would you rather stay home or go into a facility?"</em> — to surface the HHC anchor. Then Stage 2B Problem Awareness on hospital exposure and the home care gap. Then the math reframe from <a href="#s5">Section 5</a>.</p>
+
+              <p class="text-sm text-mid-blue italic mt-3 leading-relaxed">Treat the cross-sell as "completing their coverage," not "selling them more." The customer trusted you with their MA enrollment — they will extend that trust to HI/HHC if you frame the gaps honestly. Lead with the Rx math because it makes the entire package look essentially self-funded.</p>
+            </div>
+
+            <!-- Path 1b -->
+            <div class="ct-path" style="border-left-color: #d97706; background: rgba(217,119,6,0.07);">
+              <div class="ct-path-label" style="color: #d97706;">Path 1b · MA doesn't close · the expert move</div>
+              <div class="ct-path-title">When you can't help with Medicare, you can still help</div>
+
+              <p class="prose-body">Sometimes MA doesn't work out. The customer isn't in a valid SEP. Their current plan is actually a good fit. The plan they want isn't available in their county. They decide they want to keep their plan. They're not yet 65. <strong>Most new agents end the call here. The pros pivot to the ancillary rescue.</strong></p>
+
+              <div class="ct-expert">
+                Even if you couldn't get a customer enrolled in a new MA plan today, two things are still true: (1) their <strong>current MA plan still has hospital copay exposure</strong>, and (2) <strong>Medicare doesn't cover daily-living home care for any plan</strong>. Both gaps can be filled with HI and HHC — without changing anything about their current Medicare. This one pivot turns dead calls into incremental income. Over 50 calls, the difference between agents who use this move and agents who don't is dramatic.
+              </div>
+
+              <p class="prose-body">The pivot script (verbatim):</p>
+
+              <div class="ct-verbatim">
+                "Look — even though we can't change your MA plan today, your current plan still leaves you with the daily hospital copay if you ever get admitted, and Medicare doesn't cover daily-living help at home regardless of which plan you're on. There's separate coverage that helps with both of those — it works alongside your current Medicare and doesn't affect it at all. Couple quick questions to see if it's a fit?"
+              </div>
+
+              <p class="prose-body">Three reframes to keep in your back pocket for this path:</p>
+
+              <ul class="space-y-2 my-3 prose-body ml-2">
+                <li class="pl-2">• <strong>HI angle:</strong> <em>"Your current MA plan leaves a daily copay if you're admitted. HI pays you cash directly — doesn't matter what carrier your Medicare is with."</em></li>
+                <li class="pl-2">• <strong>HHC angle:</strong> <em>"This gap is structural — Medicare covers skilled care, not daily-living help. Doesn't matter which MA plan you have. HHC pays cash for that home care, plus $3,500 directly to whoever ends up taking care of you."</em></li>
+                <li class="pl-2">• <strong>Rx angle:</strong> <em>"If you take prescriptions, the reimbursement covers most of the premium back. For 4 medications, you're looking at $3–5/month real cost — for $100,000 in home healthcare coverage."</em></li>
+              </ul>
+
+              <p class="text-sm text-mid-blue italic mt-3 leading-relaxed">From here, NEPQ proceeds the same as Path 1a. The customer doesn't realize they have ongoing exposure — your job is to surface it with questions, then offer the solution. Same Preference Question, same math reframe, same close moves.</p>
+            </div>
+
+            <h4 class="font-heading font-semibold text-base text-secondary mt-6 mb-2">Sample exchange — Path 1b in action</h4>
+
+            <div class="ct-verbatim">
+              <strong>Agent:</strong> <em>"...so unfortunately you're not in a valid enrollment period right now, so I can't change your plan today. But here's the thing — your current plan still has a $300/day hospital copay if you ever get admitted, and Medicare doesn't cover daily-living help at home for any plan. There's separate coverage that helps with both. Couple quick questions?"</em><br><br>
+              <strong>Customer:</strong> Yeah, sure.<br><br>
+              <strong>Agent:</strong> <em>"Tell me about your medications — how many do you fill monthly?"</em><br><br>
+              <strong>Customer:</strong> Four — mostly generics, one brand.<br><br>
+              <strong>Agent:</strong> <em>"Got it. And if you ever needed care, would you rather stay home or go into a facility?"</em><br><br>
+              <strong>Customer:</strong> Home, definitely.<br><br>
+              <strong>Agent:</strong> <em>"Yeah, most folks say that. And one more — if you got hospitalized for 5 days, that's $1,500 in copays under your current plan. What would $1,500 in surprise bills do to your situation?"</em><br><br>
+              <strong>Customer:</strong> That'd be tight. We don't have much cushion right now.<br><br>
+              <strong>Agent:</strong> <em>"I hear you. Here's what we could do for you..."</em> [pivot to Stage 4 math reframe + presentation]
+            </div>
+
+            <p class="text-sm text-mid-blue italic mt-3 leading-relaxed">By the time the agent reaches the math, the customer has articulated three things: home preference, family financial vulnerability, prescription cost. The Stage 4 presentation is no longer a pitch — it's the answer to questions the customer just asked themselves.</p>
+          </div>
+
+          <!-- JOURNEY 2 -->
+          <div class="ct-journey">
+            <span class="ct-journey-num">Journey 2</span>
+            <h3 class="ct-journey-title">Ancillary-First (Inbound)</h3>
+            <p class="ct-journey-tagline">Non-Medicare lead. Lead with HHC. Route MA to a separate consumer-initiated call.</p>
+
+            <p class="prose-body"><strong>The setup:</strong> Customer responded to an HHC-specific or Rx-reimbursement creative. They're not a Medicare lead — they came in because of the home-care or prescription angle specifically. Compliance rule: <strong>never discuss MA on this call.</strong> If the customer raises it, route to a separate inbound MA call they initiate.</p>
+
+            <p class="prose-body">This journey is the foundation already covered in <a href="#s3">Section 3</a> (opener), <a href="#s4">Section 4</a> (NEPQ method), <a href="#s5">Section 5</a> (math), and <a href="#s6">Section 6</a> (objections). Read those sections cold before running this journey live.</p>
+
+            <p class="prose-body"><strong>The one move unique to this journey: the MA handoff.</strong> If the customer asks about Medicare Advantage mid-call:</p>
+
+            <div class="ct-verbatim">
+              "That's a great question — yes, we can absolutely help you with Medicare Advantage. But by the rules I need to ask you to give us a separate call to do that properly. Our Medicare team handles it on a different line — call us back at [MA inbound number] and just tell them you were talking to me on the home healthcare side. They'll take great care of you.<br><br>
+              Now, while I have you — want to keep going on the Home Healthcare piece we were on?"
+            </div>
+
+            <p class="prose-body">This works because it (a) honors their interest, (b) keeps you compliant, (c) preserves the active conversation. Document the MA referral in EnrollHere as a separate event with the inbound number you gave them.</p>
+
+            <p class="text-sm text-mid-blue italic mt-3 leading-relaxed">If hospital pain surfaces organically in your Stage 2 discovery — they mention a recent admission, family member's hospital scare, or budget anxiety about copays — you can pitch HI on the same call. HHC and HI are both ancillary; both can be on the same ancillary call. The MA discipline is specifically about Medicare Advantage, not hospital indemnity.</p>
+          </div>
+
+          <!-- JOURNEY 3 -->
+          <div class="ct-journey">
+            <span class="ct-journey-num">Journey 3 · High-intent</span>
+            <h3 class="ct-journey-title">HHC Outbound (PTC, High-Intent)</h3>
+            <p class="ct-journey-tagline">Pre-qualified PTC-documented leads — customers who opted in, take prescriptions, passed knockouts. Conversion rates are materially higher than inbound general-benefit.</p>
+
+            <p class="prose-body"><strong>The setup:</strong> Customer filled out a form, called a number, or otherwise opted in for information about HHC. They've already been pre-qualified — they take prescriptions (so the Rx math works) and passed the knockout screen (so they're underwriting-eligible). You have documented Permission to Contact. This is a pure ancillary outbound — MCMG doesn't attach unless MA enters the conversation.</p>
+
+            <p class="prose-body"><strong>The opener is different from inbound.</strong> You're calling them, not the other way around — so the tone has to be calm, low-pressure, matter-of-fact. Acknowledge that they may not remember signing up. Filter-promise hard.</p>
+
+            <div class="ct-verbatim">
+              "Hi [first name], this is [agent] with Clear Path Coverage. I'm following up — you reached out to us about a week ago asking about the home healthcare plan with the prescription reimbursement. Just wanted to follow up and see if you've still got questions. Is now a good time?"
+            </div>
+
+            <p class="prose-body">Why this opener works:</p>
+
+            <ul class="space-y-2 my-3 prose-body ml-2">
+              <li class="pl-2">• <strong>Names the specific product they opted in for</strong> — proves you're the right person, not a random vendor</li>
+              <li class="pl-2">• <strong>Acknowledges they may have forgotten</strong> — "a week ago" prompts memory without putting them on the spot</li>
+              <li class="pl-2">• <strong>Low-pressure close</strong> — "is now a good time?" gives them an easy out, which paradoxically reduces resistance</li>
+              <li class="pl-2">• <strong>No premature pitch</strong> — no claim, no price, no benefits mentioned until they've consented to the conversation</li>
+            </ul>
+
+            <p class="prose-body"><strong>If they say "I don't remember signing up":</strong></p>
+
+            <div class="ct-verbatim">
+              "Oh, fair — your information was passed to us through a senior benefits service you reached out to. Sometimes folks click on something and don't think much of it. Either way, you've got a minute — is it okay if I ask a couple quick questions to see if there's anything here that fits for you? If it's not a fit, I'll tell you straight."
+            </div>
+
+            <p class="prose-body"><strong>If they consent</strong>, the discovery is faster than inbound general-benefit because they're pre-qualified. The math works for most of them. Don't drag it out:</p>
+
+            <ol class="space-y-2 my-3 prose-body ml-4">
+              <li><strong>Stage 2A · Confirm fill cadence</strong> — <em>"Just confirming what we have — you're filling [N] prescriptions [monthly/quarterly]?"</em> One sentence, gets the math input.</li>
+              <li><strong>Stage 2C · Preference Question</strong> — <em>"If you ever needed care, would you rather stay home or go into a facility?"</em> 95% say home. That's your anchor.</li>
+              <li><strong>Stage 2B · Problem Awareness</strong> — <em>"If you needed help at home for a few months, who'd be helping you?"</em> Surfaces family burden in one question.</li>
+              <li><strong>Stage 4 · Math reframe</strong> — Go straight to <em>"based on the meds you mentioned, your real cost looks like $3–5 a month for $100,000 in coverage..."</em>. High-intent leads can handle the math early.</li>
+              <li><strong>Stage 5 · Commitment sequence</strong> — Q1 (<em>"do you feel this could be the answer?"</em>) → Q2 (<em>"why do you feel it is?"</em>) → application transition.</li>
+            </ol>
+
+            <p class="prose-body"><strong>Per-call expectation:</strong> 8–12 minutes total. Discovery is shorter; math comes in earlier; close is faster. The customer was already most of the way to "yes" when you dialed — your job is to confirm fit and walk them through the application.</p>
+
+            <p class="text-sm text-mid-blue italic mt-3 leading-relaxed">If a high-intent outbound customer asks about MA: same handoff script as Journey 2. Route to a separate inbound MA call they initiate. Don't get pulled into MA on an HHC-scoped outbound call.</p>
+          </div>
+
+          <h3 class="font-heading font-semibold text-xl md:text-2xl text-secondary mt-10 mb-3">The five master principles <span class="text-mid-blue text-base font-medium">— what unifies all three journeys</span></h3>
+
+          <p class="prose-body">Three openers, three pivot moves, one underlying method. The patterns that show up in every journey:</p>
+
+          <ol class="space-y-3 my-4 ml-2 prose-body">
+            <li class="pl-2"><span class="font-heading font-semibold text-secondary">1. The verbal SOA at call start covers ALL products you might discuss.</span> Belt and suspenders. Capturing HI + HHC on the SOA at the start of every MA call means you never have to stop the call to obtain a new SOA mid-conversation. Same logic for HHC outbound: list all ancillary product categories on the verbal SOA at the start.</li>
+            <li class="pl-2"><span class="font-heading font-semibold text-secondary">2. The Rx-net-cost reframe is universal.</span> If the prospect takes prescriptions, the math closes. Path 1a, Path 1b, Journey 2, Journey 3 — every fit prospect on every journey gets the same math: <em>"$3–5 a month real cost for $100,000 in coverage and the $3,500 caregiver lump."</em> Memorize it. Run it on every fit.</li>
+            <li class="pl-2"><span class="font-heading font-semibold text-secondary">3. Knockouts are your friends.</span> They tell you when to STOP pitching. If a knockout fires on HI, pivot to HHC. If a knockout fires on HHC, pivot to HI. If both fail, disqualify gracefully (Section 7). Don't pitch through a knockout — that's how compliance complaints get generated.</li>
+            <li class="pl-2"><span class="font-heading font-semibold text-secondary">4. The handoff script is the same across journeys.</span> Customer wants something outside scope? <em>"We can absolutely help with that — different call. Here's the number / our [X] team will take great care of you."</em> Don't pivot on the current call. Don't try to fold it in. Route and continue.</li>
+            <li class="pl-2"><span class="font-heading font-semibold text-secondary">5. Compliance is your shield, not your obstacle.</span> The SOA, the TPMO disclaimer, the recording — these protect you. Following them lets you sell with confidence because you have a defensible record on every call. The compliance playbook (separate doc) has the full rules; Section 7 has the in-doc guardrails.</li>
+          </ol>
+
+          <h3 class="font-heading font-semibold text-xl md:text-2xl text-secondary mt-10 mb-3">What "expert" looks like by call 50</h3>
+
+          <p class="prose-body">After your first 50 calls, expert behavior shows up in three places:</p>
+
+          <ul class="space-y-2 my-3 prose-body ml-2">
+            <li class="pl-2">• <strong>You spot the journey within the first 30 seconds.</strong> The lead source, the customer's first sentence, the energy of the call — all signal which journey you're on. You pick the opener accordingly.</li>
+            <li class="pl-2">• <strong>You handle the MA rescue without thinking about it.</strong> When MA doesn't close, the pivot to ancillary is automatic. You don't end the call defeated — you transition smoothly to <em>"even though we can't change your plan today..."</em></li>
+            <li class="pl-2">• <strong>You disqualify fast.</strong> When a prospect doesn't fit, you graceful-DQ in under 3 minutes and move to the next call. Your throughput goes up; your close rate on the fits goes up; your CTM volume stays at zero.</li>
+          </ul>
+
+          <p class="prose-body">Three journeys. One method. Every call you take is a variation of one of these patterns. Run them enough times and they stop feeling like sales — they start feeling like helping people solve real problems with real coverage they didn't know they could afford.</p>
+
+          <!-- Before You Dial — moved to end of doc -->
           <div class="ct-precall mt-10">
             <div class="ct-precall-eyebrow">★ Print this · keep at your desk</div>
             <div class="ct-precall-title">Before you dial — 60-second checklist</div>
             <ol>
+              <li><span><strong>Identify the journey.</strong> MA-First inbound? Ancillary-first inbound? HHC outbound (PTC)? Different openers; same NEPQ method.</span></li>
               <li><span><strong>Confirm state availability.</strong> No HI Shield in MT or NM. No Rx reimbursement in KY. HHC excluded in several states — verify with Advocate if uncertain.</span></li>
-              <li><span><strong>Pick the right opener for the call.</strong> Cross-sell pivot? General benefit inbound? Standalone HHC lead? See Section 3 for the exact wording.</span></li>
+              <li><span><strong>Verbal SOA covers ALL products you might discuss.</strong> On MA calls: MA + PDP + HI + HHC at minimum. On HHC outbound: ancillary categories only.</span></li>
               <li><span><strong>Plan to ask fill cadence.</strong> <em>"How often are you filling them — monthly or quarterly?"</em> Same med list at different cadence = 3× difference in reimbursement.</span></li>
               <li><span><strong>Drop the Preference Question early.</strong> <em>"If you ever needed care, would you rather stay home or go into a facility?"</em> About 95% say home — that's your anchor.</span></li>
               <li><span><strong>Run the knockouts before you pitch.</strong> HI has 5 health knockouts; HHC has 3 (4 for Plan C). If any answer is YES, pivot to the other product or disqualify gracefully.</span></li>
               <li><span><strong>Math frame ready:</strong> premium − Rx reimbursement = real monthly cost. Plan B target is ~$3–5/month net after Rx benefit kicks in.</span></li>
+              <li><span><strong>If MA doesn't work: rescue, don't end.</strong> <em>"Even though we can't change your plan today..."</em> — pivot to HI + HHC for the gaps that exist regardless of plan.</span></li>
             </ol>
           </div>
         </section>
@@ -1589,7 +1877,8 @@ Q4: "Do you feel like this is something you can have that'll get
         { id: 's4', num: '4', title: 'NEPQ in 5 stages' },
         { id: 's5', num: '5', title: 'Math reframe + 3 examples' },
         { id: 's6', num: '6', title: '5 most common objections' },
-        { id: 's7', num: '7', title: 'Compliance + where to go' }
+        { id: 's7', num: '7', title: 'Compliance + where to go' },
+        { id: 's8', num: '8', title: 'Cross-sell mastery — 3 journeys' }
       ];
 
       function buildToc(container, isMobile) {
