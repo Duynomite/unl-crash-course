@@ -827,6 +827,75 @@
     .unl-journey-sep { color: rgba(255,255,255,0.3); }
     @media (max-width: 640px) { .unl-journey-inner { padding: 0.45rem 1rem; font-size: 0.6rem; } }
     @media print { .unl-journey-bar { display: none !important; } }
+
+    /* ============ UNL NEXT-STEP CTA (shared across all 4 tools) ============ */
+    .unl-next-step {
+      margin: 3rem 0 2rem;
+      padding: 1.85rem 2rem 2rem;
+      background: linear-gradient(135deg, #2D5A7A 0%, #10202C 100%);
+      color: white;
+      border-radius: 0.85rem;
+      box-shadow: 0 6px 20px rgba(16,32,44,0.14);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.75rem;
+      align-items: center;
+    }
+    .unl-next-step-eyebrow {
+      font-family: "Urbanist", sans-serif;
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: #3DCEB2;
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+    .unl-next-step h3 {
+      font-family: "Urbanist", sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: white;
+      margin-bottom: 0.45rem;
+      line-height: 1.2;
+    }
+    .unl-next-step p {
+      font-family: "Jost", sans-serif;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      margin: 0;
+      line-height: 1.55;
+      max-width: 38rem;
+    }
+    .unl-next-step-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.65rem;
+      background: #3DCEB2;
+      color: #10202C;
+      font-family: "Urbanist", sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.15s;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+    }
+    .unl-next-step-btn:hover {
+      background: #2db89e;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(61,206,178,0.35);
+    }
+    .unl-next-step-btn svg { width: 1rem; height: 1rem; }
+    @media (max-width: 640px) {
+      .unl-next-step { grid-template-columns: 1fr; padding: 1.4rem 1.4rem 1.55rem; gap: 1.1rem; }
+      .unl-next-step h3 { font-size: 1.15rem; }
+      .unl-next-step-btn { padding: 0.8rem 1.4rem; font-size: 0.85rem; }
+    }
+    @media print { .unl-next-step { display: none !important; } }
   </style>
   <div class="unl-journey-bar">
     <div class="unl-journey-inner">
@@ -869,10 +938,6 @@
       </div>
       <div class="flex items-center gap-3 md:gap-5 shrink-0">
         <span class="hidden md:inline text-xs text-soft-blue">30 min read · 8 sections</span>
-        <a href="https://duynomite.github.io/unl-academy/" target="_blank" rel="noopener" class="ct-header-link inline-flex items-center gap-1.5 text-xs md:text-sm font-heading font-semibold">
-          Open the Academy
-          <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
         <button id="mobileTocBtn" class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 transition" aria-label="Toggle table of contents" aria-expanded="false">
           <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
         </button>
@@ -2030,14 +2095,23 @@ Q4: "Do you feel like this is something you can have that'll get
           </div>
         </section>
 
+        <!-- Next step in the journey -->
+        <div class="unl-next-step print-not-objections">
+          <div>
+            <div class="unl-next-step-eyebrow">★ Step 1 of 4 complete</div>
+            <h3>Crash Course done — next, see what you can earn.</h3>
+            <p>The Comp Model is your interactive earnings calculator. Plug in your projected sales mix and see your real Y1 take-home plus the renewal stream that builds over time.</p>
+          </div>
+          <a href="https://duynomite.github.io/unl-comp-model/" target="_blank" rel="noopener" class="unl-next-step-btn">
+            Open the Comp Model
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
         <!-- Footer / source verification -->
         <footer class="mt-16 pt-8 border-t border-light-cyan print-not-objections">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-            <a href="https://duynomite.github.io/unl-academy/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-secondary hover:bg-deep-navy text-white font-heading font-semibold text-sm px-5 py-2.5 rounded-full transition self-start">
-              Open the Academy
-              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="#top" class="text-sm font-heading font-medium text-mid-blue hover:text-secondary transition inline-flex items-center gap-1.5 self-start md:self-auto">
+            <a href="#top" class="text-sm font-heading font-medium text-mid-blue hover:text-secondary transition inline-flex items-center gap-1.5 self-start">
               <svg class="w-3.5 h-3.5" viewBox="0 0 12 12" fill="none"><path d="M6 10V2M2 6L6 2L10 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Back to top
             </a>
