@@ -574,6 +574,46 @@
       line-height: 1.3;
     }
 
+    /* CPC fit filter — business-rule filters that sit upstream of underwriting knockouts */
+    .ct-filter {
+      background: linear-gradient(to right, rgba(75,119,151,0.09), rgba(75,119,151,0.02));
+      border: 1px solid rgba(75,119,151,0.3);
+      border-left: 4px solid #4B7797;
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 1.15rem 1.4rem 1.25rem;
+      margin: 1.5rem 0;
+      line-height: 1.65;
+    }
+    .ct-filter-eyebrow {
+      font-family: "Urbanist", sans-serif;
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      color: #4B7797;
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .ct-filter-title {
+      font-family: "Urbanist", sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #2D5A7A;
+      margin-bottom: 0.55rem;
+      line-height: 1.3;
+    }
+    .ct-filter-rule {
+      font-family: "Urbanist", sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: #4B7797;
+      margin-top: 0.7rem;
+      padding-top: 0.7rem;
+      border-top: 1px dashed rgba(75,119,151,0.25);
+    }
+
     /* The expert move — accent treatment for the MA-rescue insight */
     .ct-expert {
       background: linear-gradient(to right, rgba(61,206,178,0.14), rgba(61,206,178,0.04));
@@ -663,6 +703,9 @@
       .ct-path { padding: 0.9rem 1rem 1rem; }
       .ct-path-title { font-size: 0.95rem; }
       .ct-expert { padding: 0.8rem 1rem; }
+      .ct-filter { padding: 0.95rem 1.1rem 1rem; }
+      .ct-filter-title { font-size: 0.95rem; }
+      .ct-filter-rule { font-size: 0.82rem; }
     }
 
     /* Stop horizontal overflow from very long verbatim strings */
@@ -893,6 +936,19 @@
             </ul>
           </div>
 
+          <!-- CPC Fit Filter: Medicaid — business-rule DQ, not UW knockout -->
+          <div class="ct-filter">
+            <div class="ct-filter-eyebrow">◆ CPC fit filter · Medicaid</div>
+            <div class="ct-filter-title">Customers on Medicaid — graceful DQ, do not sell</div>
+            <p class="prose-body" style="margin-bottom: 0.6rem;">This is a <strong>CPC business rule</strong>, not a UNL underwriting knockout. The policy may technically issue — but customers on Medicaid often can't sustain ancillary premiums, and policies sold to them <strong>cancel at a much higher rate</strong>. Selling to a Medicaid customer is bad for them (financial strain → policy lapses → no benefit received), bad for you (chargeback exposure), and bad for CPC (CTM complaints from frustrated customers).</p>
+            <p class="prose-body" style="margin-bottom: 0;"><strong>Discover early in Stage 2A</strong> — before underwriting knockouts even matter:</p>
+            <div class="ct-verbatim" style="margin-top: 0.6rem;">
+              "Quick one — are you on Medicaid at all, or just Medicare?"
+            </div>
+            <p class="prose-body" style="margin-bottom: 0; margin-top: 0.6rem;"><strong>If yes:</strong> graceful DQ, under 3 minutes. <em>"Got it — based on that, this isn't going to be the right fit for your situation today. Appreciate your time."</em> Move to the next call.</p>
+            <div class="ct-filter-rule">Medicaid is a hard "no-sell" filter at CPC. Skipping it costs you a few possible sales; not skipping it costs you weeks of chargebacks and a CTM trail.</div>
+          </div>
+
           <h3 class="font-heading font-semibold text-xl md:text-2xl text-secondary mt-10 mb-3">1A · Hospital Indemnity (HI), in plain English</h3>
           <p class="prose-body"><strong>HI is a small insurance policy that pays the member a fixed amount of cash for each day they're hospitalized.</strong> That's the whole product, in one sentence. The structural distinction matters — there are two big categories of insurance, and HI is the less-common one:</p>
 
@@ -930,6 +986,19 @@
 
           <div class="ct-verbatim">
             <strong>Pivot line — HI knocked out (verbatim):</strong> <em>"Yeah, the hospital indemnity piece isn't going to fit because of [their condition]. But there's another side of this we should look at — Home Healthcare. Different underwriting, fewer questions, and it has a prescription benefit on top. Want me to walk you through that?"</em>
+          </div>
+
+          <!-- CPC Fit Filter: Medigap — skip HI for Med Supp holders -->
+          <div class="ct-filter">
+            <div class="ct-filter-eyebrow">◆ CPC fit filter · Medigap holders</div>
+            <div class="ct-filter-title">Skip the HI pitch for Medicare Supplement holders</div>
+            <p class="prose-body" style="margin-bottom: 0.6rem;">If the customer has a <strong>Medicare Supplement (Medigap)</strong> plan, their hospital copays are already covered. HI Shield offers zero incremental value — pitching it is wasted breath at best, and at worst sets up a refund call once they realize they paid for redundant coverage.</p>
+            <p class="prose-body" style="margin-bottom: 0.6rem;"><strong>But Medigap doesn't fill the home care gap</strong> (Section 2 — Medigap can't add new benefit categories). HHC + Rx is still a clean fit. Pitch HHC alone, no HI.</p>
+            <p class="prose-body" style="margin-bottom: 0;">Discovery — ask early in Stage 2A:</p>
+            <div class="ct-verbatim" style="margin-top: 0.6rem;">
+              "Just so I know what coverage you currently have — do you have a Medicare Supplement plan, also called Medigap? Or Medicare Advantage? Or just Original Medicare?"
+            </div>
+            <div class="ct-filter-rule">Medigap holders: pitch HHC only. Original Medicare or MA holders: HI is in play.</div>
           </div>
 
           <div class="ct-pitch" data-label="The HI pitch in one line">
@@ -1328,7 +1397,18 @@ UNL HHC Shield         ✅ Pays cash too        ✅ COVERED
 
           <h3 class="font-heading font-semibold text-xl md:text-2xl text-secondary mt-10 mb-3">Knockout placement <span class="text-mid-blue text-base font-medium">— the art of when to ask the hard questions</span></h3>
 
-          <p class="prose-body">Knockouts are health/eligibility questions that disqualify the prospect. Ask too early and you break rapport before the customer sees value. Ask too late and you've invested 15 minutes pitching a product they can't buy. <strong>The art is treating knockouts in two layers — woven and explicit — and timing the explicit gate precisely.</strong></p>
+          <p class="prose-body">Knockouts and fit filters disqualify the prospect — but they're not all the same. Some are <strong>UNL underwriting</strong> (health questions that decline the application); some are <strong>CPC business rules</strong> (filters we apply because they're bad for the customer and bad for our economics, even if UNL would issue). Ask the wrong one too early and you break rapport. Ask too late and you've invested 15 minutes pitching a product the prospect can't buy or shouldn't have. <strong>The discipline is treating these in three layers — fit filters first, soft knockouts woven into discovery, hard knockouts gated before the math.</strong></p>
+
+          <h4 class="font-heading font-semibold text-base text-secondary mt-5 mb-2">Layer 0 — CPC fit filters (ask before anything else)</h4>
+
+          <p class="prose-body">Before you spend a minute on UNL underwriting, two CPC fit filters determine whether you should be pitching at all. These aren't underwriting questions — they're business rules based on persistency and product fit. Discover them in the first 60 seconds of Stage 2A:</p>
+
+          <ul class="space-y-2 my-3 prose-body ml-2">
+            <li class="pl-2">• <strong>Medicaid filter:</strong> <em>"Are you on Medicaid at all, or just Medicare?"</em> → If on Medicaid, graceful DQ. Don't sell. Policies sold to Medicaid customers cancel at high rates; both products fail in practice even when they technically issue.</li>
+            <li class="pl-2">• <strong>Medigap filter:</strong> <em>"Do you have a Medicare Supplement plan — Medigap — or Medicare Advantage, or just Original Medicare?"</em> → If Medigap holder, skip HI entirely (their hospital exposure is already covered). HHC + Rx still fits because Medigap can't add new benefit categories.</li>
+          </ul>
+
+          <p class="prose-body">Both filters live in Section 1 as ◆ CPC fit filter cards. <strong>Fit filters take less than 30 seconds to discover and save you 15-20 minutes of wasted pitching on every mismatched prospect.</strong> They run before UNL underwriting knockouts because they're upstream — if they fire, the underwriting questions never even matter.</p>
 
           <h4 class="font-heading font-semibold text-base text-secondary mt-5 mb-2">Layer 1 — weave the soft knockouts INTO Stage 2A discovery</h4>
 
@@ -1596,9 +1676,10 @@ Q4: "Do you feel like this is something you can have that'll get
           <div class="ct-objection">
             <h3 class="font-heading font-semibold text-xl text-secondary mb-2"><span class="font-bold text-accent">2.</span> <em>"I have a Medicare Supplement, so I'm covered."</em></h3>
             <div class="ct-verbatim">
-              "Your Medigap is great for what it does — it pays the deductibles and coinsurance Medicare leaves behind on hospital and outpatient care. But here's something most people don't realize: Medicare home health is already $0 to you when it's covered. There's no cost-share for Medigap to pay there. Plus, Medigap can't add new benefit categories — so personal care that Medicare doesn't cover, Medigap doesn't either. That's the gap this product fills."
+              "Your Medigap is great for what it does — it pays the deductibles and coinsurance Medicare leaves behind on hospital and outpatient care. You're right that you don't need Hospital Indemnity on top of that — your Medigap already handles the hospital side, and I'm not going to sell you something redundant.<br><br>
+              But here's the thing — Medigap can't add new benefit categories. So the home care gap where Medicare won't pay for daily-living help — bathing, dressing, 24-hour help — Medigap doesn't fill that either. That's a separate piece. And there's a prescription reimbursement built into it that usually offsets most of the premium. Want me to walk you through how that piece works?"
             </div>
-            <div class="ct-why"><strong>Why it works:</strong> Both structural reasons Medigap can't help — (a) no cost-share to fill, (b) can't expand categories — close the objection completely. Honoring what Medigap does well keeps the prospect from feeling their coverage is being attacked.</div>
+            <div class="ct-why"><strong>Why it works:</strong> Honoring what Medigap does well + <strong>explicitly conceding HI isn't needed</strong> ("I'm not going to sell you something redundant") builds massive trust — this is exactly the CPC fit-filter discipline (Section 1 fit filter) made visible to the customer. Then pivots cleanly to HHC + Rx on coverage merit. Same Medigap holder closes on HHC alone; refund risk eliminated.</div>
           </div>
 
           <!-- Objection 3 -->
@@ -1817,7 +1898,7 @@ Q4: "Do you feel like this is something you can have that'll get
             <h3 class="ct-journey-title">HHC Outbound (PTC, High-Intent)</h3>
             <p class="ct-journey-tagline">Pre-qualified PTC-documented leads — customers who opted in, take prescriptions, passed knockouts. Conversion rates are materially higher than inbound general-benefit.</p>
 
-            <p class="prose-body"><strong>The setup:</strong> Customer just opted in via our intake form (or other PTC channel) about the HHC + Rx benefit. The form already screened them on prescriptions (so the math works) and the basic knockout questions (so they're likely underwriting-eligible). You have documented Permission to Contact. This is a pure ancillary outbound — MCMG doesn't attach unless MA enters the conversation.</p>
+            <p class="prose-body"><strong>The setup:</strong> Customer just opted in via our intake form (or other PTC channel) about the HHC + Rx benefit. The form already screened them on prescriptions (so the math works), basic knockouts (so they're likely underwriting-eligible), AND the CPC fit filters (no Medicaid; Medigap status known so HI is pre-decided in or out). You have documented Permission to Contact. This is a pure ancillary outbound — MCMG doesn't attach unless MA enters the conversation.</p>
 
             <div class="ct-mental" data-label="Speed-to-lead — call back within 60 seconds">
               Our system aims to dial them within <strong>60 seconds of form submission</strong>. Industry data: calling within 1 minute has <strong>7–9× higher conversion</strong> than calling within an hour. Their attention is still on the topic, the form is still on their screen, and they're expecting our call. The form's thank-you page also gives them an inbound number — if we miss them, they can call us — but the goal is to reach them first. <strong>Match your opener to the actual elapsed time</strong> so the call feels real, not scripted.
@@ -1869,16 +1950,17 @@ Q4: "Do you feel like this is something you can have that'll get
             <p class="text-sm text-mid-blue italic mt-3 leading-relaxed">If a high-intent outbound customer asks about MA: same handoff script as Journey 2. Route to a separate inbound MA call they initiate. Don't get pulled into MA on an HHC-scoped outbound call.</p>
           </div>
 
-          <h3 class="font-heading font-semibold text-xl md:text-2xl text-secondary mt-10 mb-3">The five master principles <span class="text-mid-blue text-base font-medium">— what unifies all three journeys</span></h3>
+          <h3 class="font-heading font-semibold text-xl md:text-2xl text-secondary mt-10 mb-3">The six master principles <span class="text-mid-blue text-base font-medium">— what unifies all three journeys</span></h3>
 
           <p class="prose-body">Three openers, three pivot moves, one underlying method. The patterns that show up in every journey:</p>
 
           <ol class="space-y-3 my-4 ml-2 prose-body">
-            <li class="pl-2"><span class="font-heading font-semibold text-secondary">1. The verbal SOA at call start covers ALL products you might discuss.</span> Belt and suspenders. Capturing HI + HHC on the SOA at the start of every MA call means you never have to stop the call to obtain a new SOA mid-conversation. Same logic for HHC outbound: list all ancillary product categories on the verbal SOA at the start.</li>
-            <li class="pl-2"><span class="font-heading font-semibold text-secondary">2. The Rx-net-cost reframe is universal.</span> If the prospect takes prescriptions, the math closes. Path 1a, Path 1b, Journey 2, Journey 3 — every fit prospect on every journey gets the same math: <em>"$3–5 a month real cost for $100,000 in coverage and the $3,500 caregiver lump."</em> Memorize it. Run it on every fit.</li>
-            <li class="pl-2"><span class="font-heading font-semibold text-secondary">3. Knockouts are your friends.</span> They tell you when to STOP pitching. If a knockout fires on HI, pivot to HHC. If a knockout fires on HHC, pivot to HI. If both fail, disqualify gracefully (Section 7). Don't pitch through a knockout — that's how compliance complaints get generated.</li>
-            <li class="pl-2"><span class="font-heading font-semibold text-secondary">4. The handoff script is the same across journeys.</span> Customer wants something outside scope? <em>"We can absolutely help with that — different call. Here's the number / our [X] team will take great care of you."</em> Don't pivot on the current call. Don't try to fold it in. Route and continue.</li>
-            <li class="pl-2"><span class="font-heading font-semibold text-secondary">5. Compliance is your shield, not your obstacle.</span> The SOA, the TPMO disclaimer, the recording — these protect you. Following them lets you sell with confidence because you have a defensible record on every call. The compliance playbook (separate doc) has the full rules; Section 7 has the in-doc guardrails.</li>
+            <li class="pl-2"><span class="font-heading font-semibold text-secondary">1. CPC fit filters run BEFORE underwriting knockouts.</span> Two questions in the first 60 seconds of Stage 2A — <em>"Are you on Medicaid at all, or just Medicare?"</em> and <em>"Do you have Medigap, MA, or just Original Medicare?"</em> — determine whether you should be pitching at all and whether HI is even in play. Medicaid → graceful DQ. Medigap → skip HI, pitch HHC + Rx. These run upstream of every other layer (knockouts, math, close).</li>
+            <li class="pl-2"><span class="font-heading font-semibold text-secondary">2. The verbal SOA at call start covers ALL products you might discuss.</span> Belt and suspenders. Capturing HI + HHC on the SOA at the start of every MA call means you never have to stop the call to obtain a new SOA mid-conversation. Same logic for HHC outbound: list all ancillary product categories on the verbal SOA at the start.</li>
+            <li class="pl-2"><span class="font-heading font-semibold text-secondary">3. The Rx-net-cost reframe is universal.</span> If the prospect takes prescriptions, the math closes. Path 1a, Path 1b, Journey 2, Journey 3 — every fit prospect on every journey gets the same math: <em>"$3–5 a month real cost for $100,000 in coverage and the $3,500 caregiver lump."</em> Memorize it. Run it on every fit.</li>
+            <li class="pl-2"><span class="font-heading font-semibold text-secondary">4. Knockouts are your friends.</span> They tell you when to STOP pitching. If a knockout fires on HI, pivot to HHC. If a knockout fires on HHC, pivot to HI. If both fail, disqualify gracefully (Section 7). Don't pitch through a knockout — that's how compliance complaints get generated.</li>
+            <li class="pl-2"><span class="font-heading font-semibold text-secondary">5. The handoff script is the same across journeys.</span> Customer wants something outside scope? <em>"We can absolutely help with that — different call. Here's the number / our [X] team will take great care of you."</em> Don't pivot on the current call. Don't try to fold it in. Route and continue.</li>
+            <li class="pl-2"><span class="font-heading font-semibold text-secondary">6. Compliance is your shield, not your obstacle.</span> The SOA, the TPMO disclaimer, the recording — these protect you. Following them lets you sell with confidence because you have a defensible record on every call. The compliance playbook (separate doc) has the full rules; Section 7 has the in-doc guardrails.</li>
           </ol>
 
           <h3 class="font-heading font-semibold text-xl md:text-2xl text-secondary mt-10 mb-3">What "expert" looks like by call 50</h3>
@@ -1899,6 +1981,7 @@ Q4: "Do you feel like this is something you can have that'll get
             <div class="ct-precall-title">Before you dial — 60-second checklist</div>
             <ol>
               <li><span><strong>Identify the journey.</strong> MA-First inbound? Ancillary-first inbound? HHC outbound (PTC)? Different openers; same NEPQ method.</span></li>
+              <li><span><strong>Run CPC fit filters FIRST.</strong> <em>"Are you on Medicaid at all, or just Medicare?"</em> → if Medicaid, graceful DQ. <em>"Do you have Medigap, MA, or just Original Medicare?"</em> → if Medigap holder, skip HI; HHC + Rx only. Saves 15-20 min of wasted pitching when they fire.</span></li>
               <li><span><strong>Confirm state availability.</strong> No HI Shield in MT or NM. No Rx reimbursement in KY. HHC excluded in several states — verify with Advocate if uncertain.</span></li>
               <li><span><strong>Verbal SOA covers ALL products you might discuss.</strong> On MA calls: MA + PDP + HI + HHC at minimum. On HHC outbound: ancillary categories only.</span></li>
               <li><span><strong>Plan to ask fill cadence.</strong> <em>"How often are you filling them — monthly or quarterly?"</em> Same med list at different cadence = 3× difference in reimbursement.</span></li>
